@@ -1,6 +1,6 @@
 // Dependencies 
-const inquirer =require ('inquirer');
 const mysql= require('mysql2');
+const inquirer =require ('inquirer');
 const table = require('console.table');
 
 // Connecting to the DB database
@@ -9,10 +9,11 @@ const connection= mysql.createConnection(
         host:'localhost',
         user: 'root',
         password:'12345smu!',
-        database: 'fakecompany_db' 
+        database: 'company_db' 
     },
-    console.log('Connected to the fakecompany_db.')
+    console.log('Connected to the company_db.')
 );
+
 // Start writing all the functions for the app
 function options() {
   inquirer.prompt({
@@ -350,31 +351,25 @@ function deleteEmployee() {
 // Delete role
 function deleteRole() {
 
-  inquirer.prompt([
-    {
-      type: 'input',
-      name: 'role',
-      message: 'Enter the ID of the role you would like to delete.'
+    inquirer.prompt([
+      {
+        type: 'input',
+        name: 'role',
+        message: 'Enter the role of the employee you would like to remove.'
+      }
+    ]).then((answers) => {
+      const query = `DELETE FROM employee?`;
+      const deleteEmp = {
+        id: answers.role
+      };
+      connection.query(query, deleteRole, (err, res) => {
+            if (err)
+                  throw err;
+            console.log('This role has been removed from the company database.');
+            options();
+          })
+        })
     }
-  ]).then((answers) => {
-    const query = `DELETE FROM role?`;
-    const deleteRoleId = {
-      id: answers.role
-    };
-    connection.query(query, deleteRoleId, (err, res) => {
-      if (err) throw err;
-      console.log('This role has been successfully been from the company database.');
-      options();
-    })
-  })
-}
-
-
-connection.connect((err) => {
-  if (err) throw err;
-  console.log(`Connected to the fakecompany_db database.`);
-  options();
-})
 
 quitApp = () => {
   console.log('thank you!');
