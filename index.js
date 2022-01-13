@@ -14,6 +14,8 @@ const connection= mysql.createConnection(
     console.log('Connected to the company_db.')
 );
 
+options();
+
 // Start writing all the functions for the app
 function options() {
   inquirer.prompt({
@@ -73,10 +75,10 @@ function options() {
           break;
         default:
           console.log("error.")
-      }
+        }
     })
-
 };
+
 // view all departments 
 function viewAllDepartments() {
   const query = 'SELECT * FROM department';
@@ -85,7 +87,7 @@ function viewAllDepartments() {
       console.log(err)
     }
     else {
-      // do stuff with the results 
+    
       console.log(res)
       console.table(res);
       options();
@@ -94,20 +96,21 @@ function viewAllDepartments() {
 };
 // add department
 function addDepartment() {
-  inquirer.prompt([
-    {
-      type: 'input',
-      name: 'newDepartmentName',
-      message: 'Department name you would like to add?'
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'newDepartmentName',
+            message: 'Department name you would like to add?'
 
-    }
-  ]).then(function (answers) {
+        }
+    ]).then(function (answers) {
     // write add department syntax
-    connection.query(`INSERT INTO department (name) VALUES ('${answers.newDepartmentName}');`, (err, res) => {
-      if (err) throw err;
-      console.log('New department has been added!');
-      console.log(res);
-      options();
+        connection.query(`INSERT INTO department (name) VALUES ('${answers.newDepartmentName}');`, (err, res) => 
+    {
+        if (err) throw err;
+        console.log('New department has been added!');
+        console.log(res);
+        options();
     })
   })
 };

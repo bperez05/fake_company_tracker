@@ -1,4 +1,4 @@
-NSERT INTO department (name)
+INSERT INTO department (name)
 VALUES
     ('Executives'),
     ('Accounting and Finance'),
