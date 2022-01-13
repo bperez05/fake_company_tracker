@@ -313,10 +313,11 @@ function deleteDepartment() {
     {
       type: 'input',
       name: 'department',
+      // choices: deptArray
       message: 'Enter the name of the department you would like to remove.'
     }
   ]).then((answers) => {
-    const query = `DELETE FROM department?`;
+    const query = `DELETE FROM department WHERE?`;
     const deleteDept = {
       name: answers.department
     };
@@ -339,7 +340,7 @@ function deleteEmployee() {
       message: 'Enter the ID of the employee you would like to delete.'
     }
   ]).then((answers) => {
-    const query = `DELETE FROM employee?`;
+    const query = `DELETE FROM employee WHERE?`;
     const deleteEmp = {
       id: answers.employeeId
     };
@@ -361,7 +362,7 @@ function deleteRole() {
         message: 'Enter the role of the employee you would like to remove.'
       }
     ]).then((answers) => {
-      const query = `DELETE FROM employee?`;
+      const query = `DELETE FROM role WHERE?`;
       const deleteEmp = {
         id: answers.role
       };
