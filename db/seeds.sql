@@ -1,6 +1,6 @@
 NSERT INTO department (name)
 VALUES
-    ('Executive'),
+    ('Executives'),
     ('Accounting and Finance'),
     ('Tech'),
     ('HR'),
@@ -18,4 +18,13 @@ VALUES
     ('HR Director', 125000, 4);
 
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
-VALUES
+VALUES ('Ricky', 'Bobby', 1, null),
+    ('Juan', 'Carlos', 2, 1),
+    ('Kyle', 'Foregard', 3, 2),
+    ('Steve', 'Willdoit', 4, null),
+    ('Lebron', 'James', 5, 3),
+    ('Brandon', 'Perez', 5, 1),
+    ('Cindy', 'Hunt', 4, 5),
+    ('Johnny', 'AppleSeed', 2, 6);
+
+
