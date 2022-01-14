@@ -359,14 +359,14 @@ function deleteRole() {
       {
         type: 'input',
         name: 'role',
-        message: 'Enter the role of the employee you would like to remove.'
+        message: 'Enter the role of the you would like to remove.'
       }
     ]).then((answers) => {
       const query = `DELETE FROM role WHERE?`;
-      const deleteEmp = {
+      const deleteRoleId = {
         id: answers.role
       };
-      connection.query(query, deleteRole, (err, res) => {
+      connection.query(query, deleteRoleId, (err, res) => {
             if (err)
                   throw err;
             console.log('This role has been removed from the company database.');
@@ -374,6 +374,8 @@ function deleteRole() {
           })
         })
     }
+
+    
 
 quitApp = () => {
   console.log('thank you!');

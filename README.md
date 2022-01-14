@@ -44,7 +44,7 @@ Allows non-developers to use to use SQL to track and manage employee data.
 
 ### Demo 🎥
 
-* [Link to Demo]()
+* [Link to Demo](https://watch.screencastify.com/v/aF6vpS3YWFpBfccclh9n)
 
 ### GitHub Link
 
